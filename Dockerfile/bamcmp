@@ -1,0 +1,27 @@
+FROM alpine:3.13.5
+LABEL maintainer="BAMCMP ZCHENG <zhipeng.cheng@brooks.com>"
+
+ENV LD_LIBRARY_PATH=/usr/local/lib
+
+RUN apk update \
+  && apk add --no-cache tzdata gcc g++ git wget zlib-dev bzip2-dev xz-dev curl-dev openssl-dev make \
+	&& cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
+	&& echo "Asia/Shanghai" > /etc/timezone \
+	&& wget https://github.com/samtools/htslib/releases/download/1.6/htslib-1.6.tar.bz2 \
+	&& tar -jxvf htslib-1.6.tar.bz2 \
+	&& cd /htslib-1.6 \
+	&& ./configure \
+	&& make \
+	&& make install \
+	&& cd .. \
+	&& rm -rf htslib-* \
+	&& git clone https://github.com/CRUKMI-ComputationalBiology/bamcmp.git \
+	&& cd /bamcmp \
+	&& make \
+	&& cp /bamcmp/build/bamcmp /usr/local/bin/ \
+	&& cd .. \
+	&& rm -rf bamcmp \
+	&& apk del tzdata git wget zlib-dev openssl-dev make \
+	&& rm -rf /var/cache/apk/* \
+  && rm -rf /root/.cache \
+  && rm -rf /tmp/*
