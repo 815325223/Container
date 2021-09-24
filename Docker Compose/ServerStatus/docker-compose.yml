@@ -1,0 +1,11 @@
+version: '2'
+services:
+  serverstatus:
+    image: cppla/serverstatus:latest
+    container_name: serverstatus
+    volumes:
+      - ./config.json:/ServerStatus/server/config.json
+    ports:
+      - "80:80"
+      - "35601:35601"
+    restart: always
