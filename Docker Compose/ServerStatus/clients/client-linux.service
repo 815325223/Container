@@ -1,0 +1,16 @@
+[Unit]
+Description=Start or stop the Serverstatus server
+After=rc-local.service
+After=network.target
+Wants=network.target
+
+[Service]
+Type=idle
+User=<Normal User>
+Group=<Normal Group>
+WorkingDirectory=/usr/local/src
+ExecStart=/usr/bin/python client-linux.py
+Restart=always
+LimitNOFILE=512000
+[Install]
+WantedBy=multi-user.target
