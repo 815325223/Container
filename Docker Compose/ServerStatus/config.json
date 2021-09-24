@@ -1,0 +1,12 @@
+{"servers":
+	[
+		{
+			"username": "user",
+			"name": "compute-0-0",
+			"type": "Dedicated Server",
+			"host": "compute-0-0",
+			"location": "JS",
+			"password": "user@123"
+		}
+	]
+}
