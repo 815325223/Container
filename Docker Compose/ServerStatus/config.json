@@ -2,11 +2,19 @@
 	[
 		{
 			"username": "user",
-			"name": "compute-0-0",
+			"name": "Jenkins-Server",
 			"type": "Dedicated Server",
-			"host": "compute-0-0",
-			"location": "JS",
+			"host": "Jenkins-Server",
+			"location": "Home",
 			"password": "user@123"
+		},
+		{
+			"username": "user",
+			"name": "Jenkins-Agent",
+			"type": "Dedicated Server",
+			"host": "Jenkins-Agent",
+			"location": "Home",
+			"password": "user@456"
 		}
 	]
 }
