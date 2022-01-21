@@ -1,0 +1,20 @@
+defaultEntryPoints = ["http", "https"]
+
+[entryPoints]
+  [entryPoints.http]
+  address = ":80"
+    [entryPoints.http.redirect]
+    entryPoint = "https"
+  [entryPoints.https]
+  address = ":443"
+	  [entryPoints.https.tls]
+
+#Let's encrypt setup
+[acme]
+  email = "your_mail@qq.com"
+  storage = "acme.json"
+  onHostRule = true
+  keyType = "EC384"
+  entryPoint = "https"
+  [acme.httpChallenge]
+    entryPoint = "http"
