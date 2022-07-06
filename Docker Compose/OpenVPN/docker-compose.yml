@@ -1,1 +1,28 @@
+version: '3'
 
+services:
+  openvpn:
+    image: openvpn:v2.4.11
+    build:
+      context: ./services/openvpn
+    container_name: openvpn
+    ports:
+      - "1195:1195/udp"
+    volumes:
+      - ./services/openvpn/conf/openvpn.conf:/etc/openvpn/openvpn.conf:rw
+      - ./services/openvpn/conf/ldap.conf:/etc/openvpn/ldap.conf:rw
+      - ./services/openvpn/docker-entrypoint.sh:/docker-entrypoint.sh:rw
+    environment:
+      TZ: "Asia/Shanghai"
+    restart: always
+    #command: crond -f 
+    #network_mode: bridge
+    cap_add:
+      - NET_ADMIN
+    networks:
+      - default
+
+networks:
+  default:
+    external: true
+    name: bridge2
