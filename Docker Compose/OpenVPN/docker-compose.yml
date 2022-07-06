@@ -2,7 +2,7 @@ version: '3'
 
 services:
   openvpn:
-    image: openvpn:v2.4.11
+    image: 815325223/openvpn:v2.4.11
     build:
       context: ./services/openvpn
     container_name: openvpn
