@@ -1,0 +1,19 @@
+set_var EASYRSA_BATCH "yes"
+set_var EASYRSA_REQ_CN "$OPENVPN_NAME"
+set_var EASYRSA "$EASYRSA"
+set_var EASYRSA_PKI "$EASYRSA/pki"
+set_var EASYRSA_TEMP_DIR "$EASYRSA_PKI"
+set_var EASYRSA_DN "org"
+set_var EASYRSA_REQ_COUNTRY "CN"
+set_var EASYRSA_REQ_PROVINCE "JiangSu"
+set_var EASYRSA_REQ_CITY "Suzhou"
+set_var EASYRSA_REQ_ORG "idevops Inc."
+set_var EASYRSA_REQ_EMAIL "admin@idevops.fun"
+set_var EASYRSA_REQ_OU "Devops IT"
+set_var EASYRSA_KEY_SIZE 2048
+set_var EASYRSA_ALGO rsa
+set_var EASYRSA_CA_EXPIRE 3650
+set_var EASYRSA_CERT_EXPIRE 1080
+set_var EASYRSA_NS_SUPPORT "no"
+set_var EASYRSA_EXT_DIR "$EASYRSA/x509-types"
+set_var EASYRSA_DIGEST "sha256"
